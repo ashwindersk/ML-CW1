@@ -1,23 +1,4 @@
-%% This is file `elsarticle-template-1-num.tex',
-%%
-%% Copyright 2009 Elsevier Ltd
-%%
-%% This file is part of the 'Elsarticle Bundle'.
-%% ---------------------------------------------
-%%
-%% It may be distributed under the conditions of the LaTeX Project Public
-%% License, either version 1.2 of this license or (at your option) any
-%% later version.  The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.2 or later is part of all distributions of LaTeX
-%% version 1999/12/01 or later.
-%%
-%% Template article for Elsevier's document class `elsarticle'
-%% with numbered style bibliographic references
-%%
-%% $Id: elsarticle-template-1-num.tex 149 2009-10-08 05:01:15Z rishi $
-%% $URL: http://lenova.river-valley.com/svn/elsbst/trunk/elsarticle-template-1-num.tex $
-%%
+
 \documentclass[preprint,12pt]{elsarticle}
 
 \usepackage{amsmath}
@@ -133,19 +114,21 @@
 
 \section{Question 1}
 
-\subsection{\textbf{What assumption does a Gaussian likelihood encode i.e what motivates the choice of this likelihood function?}}
+\textbf{What assumption does a Gaussian likelihood encode i.e what motivates the choice of this likelihood function?}
+
 
   We are aware that our data has been corrupted with some noise. We use an error function to model this, and assume that this function $\epsilon$ is normally distributed; based on this assumption, we know that the likelihood function is also normally distributed. This then allows us to model the likelihood function as a Gaussian distribution.
 
 
-\subsection{\textbf{What does it mean when we have chosen a spherical co variance matrix for the likelihood, contrast with a non spherical case?}}
+\textbf{What does it mean when we have chosen a spherical co variance matrix for the likelihood, contrast with a non spherical case?}
 
 When you have a spherical co-variance matrix, it means that the variables you are measuring are completely independent from each other, whilst the non spherical case suggests that the variables you measure are dependent on each other. A spherical matrix usually takes the isotropic form of \textbf{B$^T$ \textit{I}} where \textbf{B} is a row vector and \textbf{\textit{I}} is the identity matrix.
 
 
 \section{Question 2}
 
-\subsection{If we do \textbf{not} assume that the data points are independent how would the likelihood look then? Remember that Y = [y_1,...y_n]}
+If we do \textbf{not} assume that the data points are independent how would the likelihood look then? Remember that $Y =[y_1,...y_n]$
+
 
 \begin{equation}
 
@@ -153,16 +136,36 @@ p(y_1, ..., y_n|f, \textbf{X}) = p(y_1|f, \textbf{X})p(y_2|y_1,f,\textbf{X})...p
 
 \end{equation}
 
+
+
+\begin{equation}
+    \textbf{y}_i= \textbf{Wx}_i + \boldsymbol{\epsilon}_i
+\end{equation}
+
+where \boldsymbol{\epsilon}  \sim \mathcal{N}(\boldsymbol{0},\boldsymbol{\sigma^{2}I})
 \section{Question 3}
+\textbf{What is the specific form of the likelihood above, complete the right-hand side of the expression.}
+
+ p(\textbf{Y}\mid \textbf{X,W})={N}(\boldsymbol{Wx}_i,\boldsymbol{\sigma^{2}I})\.
 
 
-Reference to Section \ref{S:1}. Etiam congue sollicitudin diam non porttitor. Etiam turpis nulla, auctor a pretium non, luctus quis ipsum. Fusce pretium gravida libero non accumsan. Donec eget augue ut nulla placerat hendrerit ac ut mi. Phasellus euismod ornare mollis. Proin tempus fringilla ultricies. Donec pretium feugiat libero quis convallis. Nam interdum ante sed magna congue eu semper tellus sagittis. Curabitur eu augue elit.
+\section{Question 4}
+\textbf{Explain the concept of conjugate distributions, why do they help us compute the posterior distribution?}
 
-Aenean eleifend purus et massa consequat facilisis. Etiam volutpat placerat dignissim. Ut nec nibh nulla. Aliquam erat volutpat. Nam at massa velit, eu malesuada augue. Maecenas sit amet nunc mauris. Maecenas eu ligula quis turpis molestie elementum nec at est. Sed adipiscing neque ac sapien viverra sit amet vestibulum arcu rhoncus.
+Conjugate distributions are distributions that allow us to mathematically represent our belief in a specific parameter over a distribution in a specific functional form. They are extremely useful to help us compute the posterior distribution because it allows us to manipulate the functional form of the posterior before we even compute what the posterior is. The posterior is proportional to the likelihood x the prior, and since the conjugate distribution allows us to fix the functional form of the posterior, we avoid the hard and messy integration that we would need for Bayes Theorem. 
 
-Vivamus pharetra nibh in orci euismod congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque lacus diam, congue vel laoreet id, iaculis eu sapien. In id risus ac leo pellentesque pellentesque et in dui. Etiam tincidunt quam ut ante vestibulum ultricies. Nam at rutrum lectus. Aenean non justo tortor, nec mattis justo. Aliquam erat volutpat. Nullam ac viverra augue. In tempus venenatis nibh quis semper. Maecenas ac nisl eu ligula dictum lobortis. Sed lacus ante, tempor eu dictum eu, accumsan in velit. Integer accumsan convallis porttitor. Maecenas pretium tincidunt metus sit amet gravida. Maecenas pretium blandit felis, ac interdum ante semper sed.
+\section{Question 5}
+Reason about the Gaussian distribution in this context, which distance function does it encode with a spherical co-variance matrix
 
-In auctor ultrices elit, vel feugiat ligula aliquam sed. Curabitur aliquam elit sed dui rhoncus consectetur. Cras elit ipsum, lobortis a tempor at, viverra vitae mi. Cras sed urna sed eros bibendum faucibus. Morbi vel leo orci, vel faucibus orci. Vivamus urna nisl, sodales vitae posuere in, tempus vel tellus. Donec magna est, luctus non commodo sit amet, placerat et enim.
+A spherical co-variance is a diagonal matrix. 
+In the Gaussian multivariate context, this means that the exponential equates to the euclidean distance between the  data vector and the mean vector. 
+
+
+
+
+
+
+
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
